@@ -1,11 +1,11 @@
 #
-# $Id: Ptrace.pm,v 0.1 2015/01/14 10:07:56 dankogai Exp dankogai $
+# $Id: Ptrace.pm,v 0.2 2015/01/14 22:23:25 dankogai Exp dankogai $
 #
 package FreeBSD::amd64::Ptrace;
 use 5.008001;
 use strict;
 use warnings;
-our $VERSION = sprintf "%d.%02d", q$Revision: 0.1 $ =~ /(\d+)/g;
+our $VERSION = sprintf "%d.%02d", q$Revision: 0.2 $ =~ /(\d+)/g;
 require Exporter;
 our @ISA = qw/Exporter/;
 
@@ -184,7 +184,7 @@ FreeBSD::amd64::Ptrace - Ptrace for FreeBSD-amd64
 
 =head1 VERSION
 
-$Id: Ptrace.pm,v 0.1 2015/01/14 10:07:56 dankogai Exp dankogai $
+$Id: Ptrace.pm,v 0.2 2015/01/14 22:23:25 dankogai Exp dankogai $
 
 =head1 SYNOPSIS
 
@@ -357,11 +357,11 @@ value of the first argument of the stack.
 
 =item pt_write($pid, $addr, $data)
 
-Writes one 32 bit value in $data to $addr
+Writes one 64 bit value in $data to $addr
 
   my $regs = pt_getregs($pid);
   # place null pointer to the first argument.
-  my $status = pt_read($pid, $regs->eap + 4, 0);
+  my $status = pt_read($pid, $regs->rdi, 0);
 
 =item pt_peekstr($pid, $addr)
 
@@ -369,7 +369,7 @@ Treats $addr as a string pointer and reads its content.  Be careful
 when you use this.
 
   my $regs = pt_getregs($pid);
-  my $str  = pt_peekstr($pid, $regs->eap + 4);
+  my $str  = pt_peekstr($pid, $regs->rdi);
 
 =item pt_pokestr($pid, $addr, $string)
 
@@ -378,7 +378,7 @@ than the original string, the string is truncated before copied.
 
   my $regs = pt_getregs($pid);
   # place null pointer to the first argument.
-  my $status = pt_read($pid, $regs->eap + 4, 0);
+  my $status = pt_read($pid, $regs->rdi, '');
 
 =back
 
