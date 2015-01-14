@@ -7,5 +7,4 @@ lib/FreeBSD/amd64/Ptrace.pm
 t/FreeBSD-amd64-Ptrace.t
 t/nofork.pl
 t/pstrace.pl
-t/rperl.pl
 META.yml                                 Module meta-data (added by MakeMaker)

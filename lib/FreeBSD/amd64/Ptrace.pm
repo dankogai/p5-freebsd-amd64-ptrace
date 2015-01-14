@@ -1,11 +1,11 @@
 #
-# $Id: Ptrace.pm,v 0.4 2015/01/14 06:30:20 dankogai Exp dankogai $
+# $Id: Ptrace.pm,v 0.1 2015/01/14 10:07:56 dankogai Exp dankogai $
 #
 package FreeBSD::amd64::Ptrace;
 use 5.008001;
 use strict;
 use warnings;
-our $VERSION = sprintf "%d.%02d", q$Revision: 0.4 $ =~ /(\d+)/g;
+our $VERSION = sprintf "%d.%02d", q$Revision: 0.1 $ =~ /(\d+)/g;
 require Exporter;
 our @ISA = qw/Exporter/;
 
@@ -183,7 +183,7 @@ FreeBSD::amd64::Ptrace - Ptrace for FreeBSD-amd64
 
 =head1 VERSION
 
-$Id: Ptrace.pm,v 0.4 2015/01/14 06:30:20 dankogai Exp dankogai $
+$Id: Ptrace.pm,v 0.1 2015/01/14 10:07:56 dankogai Exp dankogai $
 
 =head1 SYNOPSIS
 
