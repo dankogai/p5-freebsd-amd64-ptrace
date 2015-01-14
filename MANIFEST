@@ -6,5 +6,6 @@ README
 lib/FreeBSD/amd64/Ptrace.pm
 t/FreeBSD-amd64-Ptrace.t
 t/nofork.pl
+t/peekpoke.pl
 t/pstrace.pl
 META.yml                                 Module meta-data (added by MakeMaker)

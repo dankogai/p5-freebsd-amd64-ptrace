@@ -144,33 +144,34 @@ sub pt_setregs{ xs_setregs($_[0], @{$_[1]}) };
 sub pt_getcall($) { xs_getcall($_[0]) }
 sub pt_setcall($$){ xs_setcall($_[0], $_[1]) }
 
-sub pt_peekstr{
-    my ($pid, $addr) = @_;
+sub pt_peekstr {
+    my ( $pid, $addr ) = @_;
     my $str = '';
-    while(1){
-	my $int =  ptrace(PT_READ_D, $pid, $addr, 0);
-	for my $c (unpack("C*", pack "I", $int)){
-	    return $str unless $c;
-	    $str .= chr $c
-	}
-	$addr += 8;
+    while (1) {
+        my $int = ptrace( PT_READ_D, $pid, $addr, 0 );
+        for my $c ( unpack( "C*", pack "I", $int ) ) {
+            return $str unless $c;
+            $str .= chr $c;
+        }
+        $addr += 4;
     }
 }
 
-sub pt_pokestr{
-    my ($pid, $addr, $str) = @_;
+sub pt_pokestr {
+    my ( $pid, $addr, $str ) = @_;
     # special case: write 0 on empty string;
-    return ptrace(PT_WRITE_D, $pid, $addr, 0) if !length($str);
-    my $dst = pt_peekstr($pid, $addr);
-    if (length($dst) < length($str)){
-	substr($str, 0, length($dst), '');
+    return ptrace( PT_WRITE_D, $pid, $addr, 0 ) if !length($str);
+    my $dst = pt_peekstr( $pid, $addr );
+    if ( length($dst) < length($str) ) {
+        substr( $str, 0, length($dst), '' );
     }
-    while(my $q = substr($str, 0, 4, '')){
-	my $int = 0;
-	for my $c (reverse unpack "C*", $q){
-	    $int = ($int << 8) + $c;
-	}
-	ptrace(PT_WRITE_D, $pid, $addr, $int);
+    while ( my $q = substr( $str, 0, 4, '' ) ) {
+        my $int = 0;
+        for my $c ( reverse unpack "C*", $q ) {
+            $int = ( $int << 8 ) + $c;
+        }
+        ptrace( PT_WRITE_D, $pid, $addr, $int );
+        $addr += 4;
     }
 }
 
