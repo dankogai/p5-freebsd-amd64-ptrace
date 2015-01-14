@@ -1,0 +1,7 @@
+# Revision history for FreeBSD-amd64-Ptrace
+#
+# $Id: Changes,v 0.4 2015/01/14 06:30:20 dankogai Exp dankogai $
+#
+$Revision: 0.1 $ $Date: 2015/01/14 06:30:20 $
++ *
+        Forked from FreeBSD::i386::Ptrace.
