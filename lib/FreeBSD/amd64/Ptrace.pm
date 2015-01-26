@@ -56,37 +56,37 @@ XSLoader::load( 'FreeBSD::amd64::Ptrace', $VERSION );
 
 # Preloaded methods go here.
 use constant {
-    PT_TRACE_ME   => 0,
-    PT_READ_I     => 1,
-    PT_READ_D     => 2,
-    PT_READ_U     => 3,
-    PT_WRITE_I    => 4,
-    PT_WRITE_D    => 5,
-    PT_WRITE_U    => 6,
-    PT_CONTINUE   => 7,
-    PT_KILL       => 8,
-    PT_STEP       => 9,
-    PT_ATTACH     => 10,
-    PT_DETACH     => 11,
-    PT_IO         => 12,
-    PT_LWPINFO    => 13,
-    PT_GETNUMLWPS => 14,
-    PT_GETLWPLIST => 15,
-    PT_CLEARSTEP  => 16,
-    PT_SETSTEP    => 17,
-    PT_SUSPEND    => 18,
-    PT_RESUME     => 19,
-    PT_TO_SCE     => 20,
-    PT_TO_SCX     => 21,
-    PT_SYSCALL    => 22,
+    PT_TRACE_ME    => 0,
+    PT_READ_I      => 1,
+    PT_READ_D      => 2,
+    PT_READ_U      => 3,
+    PT_WRITE_I     => 4,
+    PT_WRITE_D     => 5,
+    PT_WRITE_U     => 6,
+    PT_CONTINUE    => 7,
+    PT_KILL        => 8,
+    PT_STEP        => 9,
+    PT_ATTACH      => 10,
+    PT_DETACH      => 11,
+    PT_IO          => 12,
+    PT_LWPINFO     => 13,
+    PT_GETNUMLWPS  => 14,
+    PT_GETLWPLIST  => 15,
+    PT_CLEARSTEP   => 16,
+    PT_SETSTEP     => 17,
+    PT_SUSPEND     => 18,
+    PT_RESUME      => 19,
+    PT_TO_SCE      => 20,
+    PT_TO_SCX      => 21,
+    PT_SYSCALL     => 22,
     PT_FOLLOW_FORK => 23,
-    PT_GETREGS    => 33,
-    PT_SETREGS    => 34,
-    PT_GETFPREGS  => 35,
-    PT_SETFPREGS  => 36,
-    PT_GETDBREGS  => 37,
-    PT_SETDBREGS  => 38,
-    PT_FIRSTMACH  => 64,
+    PT_GETREGS     => 33,
+    PT_SETREGS     => 34,
+    PT_GETFPREGS   => 35,
+    PT_SETFPREGS   => 36,
+    PT_GETDBREGS   => 37,
+    PT_SETDBREGS   => 38,
+    PT_FIRSTMACH   => 64,
 };
 
 use FreeBSD::amd64::Ptrace::Syscall;
@@ -424,6 +424,7 @@ L<http://search.cpan.org/dist/FreeBSD-amd64-Ptrace>
 
 L<Sys::Ptrace>
 
+L<FreeBSD::i386::Ptrace>
 
 =head1 COPYRIGHT & LICENSE
 

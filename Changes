@@ -3,6 +3,10 @@
 # $Id: Changes,v 0.2 2015/01/14 22:23:25 dankogai Exp dankogai $
 #
 $Revision: 0.2 $ $Date: 2015/01/14 22:23:25 $
+! lib/FreeBSD/amd64/Ptrace.mp
+  * fix POD
+  
+0.02 2015/01/14 22:23:25
 + t/peekpoke.pl
 ! lib/FreeBSD/amd64/Ptrace.pm
   * fix pt_(peek|poke)str
